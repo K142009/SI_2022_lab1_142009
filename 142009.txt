@@ -1,0 +1,236 @@
+Софтверско инженерство - Лабораториска вежба 1
+
+
+1. Инсталиран git и креиран профил
+
+2. Името на главната гранка е променето во master
+
+3. Креирање оддалечен (remote) директориум SI_2022_lab1_142009
+
+4. Команда за клонирање на директориум, влез и сетирање :
+
+	$ git clone https://github.com/K142009/SI_2022_lab1_142009.git
+	$ cd SI_2022_lab1_142009 
+	
+	$ git config --global user.name "Katerina Kalajdjievska"
+	$ git config --global user.email "katerinakalaj@hotmail.com"
+
+5. Креирање нова текстуална датотека во локалниот репозиториум staging и commit со порака:
+
+	$ nano shopping_list.txt 
+	$ git add shopping_list.txt
+	$ git commit -m"Add 5 items to the shopping list"
+
+6. Додавање количина на производите во текстуалната датотека, staging и commit со порака
+
+	$ nano shopping_list.txt
+	$ git add shopping_list.txt
+	$ git commit shopping_list.txt -m"Add quantities to the items"
+
+7. Креираме две гранки branch1 и branch2
+
+	$ git branch -c branch1
+	$ git branch -c branch2
+
+8. Логот е изваден малку подоцна во вежбата:
+
+
+    Add quantities to the items
+
+commit 522372c8907eab19427d45594a063ee723fd1dea
+Author: Katerina Kalajdjievska <katerinakalaj@hotmail.com>
+Date:   Wed Apr 6 17:50:54 2022 +0200
+
+    Add 5 items to the shopping list
+
+commit d4b034a65d5283170ef572aec22e5dcd44c70c29
+Author: Katerina <71216158+K142009@users.noreply.github.com>
+Date:   Wed Apr 6 17:02:13 2022 +0200
+
+    Update README.md
+
+commit d407d51c82d02983eb1077527990e62849429881
+Author: Katerina <71216158+K142009@users.noreply.github.com>
+Date:   Wed Apr 6 17:00:52 2022 +0200
+
+    Initial commit
+
+
+
+9. Ги синхронизираме сите гранки со оддалечениот репозиториум:
+	
+	$ git pull
+	$ git push origin --all
+
+10. Команда за да ги видиме сите гранки и да се префрлиме на гранката branch1
+
+	$ git branch
+	$ git checkout branch1
+
+11. Ја менуваме количината на петтиот производ во листата и правиме commit со порака:
+
+	$ nano shopping_list.txt
+	$ git add shopping_list.txt
+	$ git commit shopping_list.txt -m"Change quantity of item 5"
+
+12. Се враќаме на гранката master:
+
+	$ git checkout master
+
+13. Ја менуваме количината на вториот производ во листата и правиме commit со порака:
+
+	$ nano shopping_list.txt
+	$ git commit shopping_list.txt -m"Change quantity of item #2"
+
+14. Ги синхронизираме сите гранки со оддалечениот репозиториум:
+
+	$ git push origin --all
+
+15. Се префрламе на гранката branch2
+
+	$ git checkout branch2
+
+16. Го менуваме името на четвртиот продукт и правиме commit:
+
+	$ nano shopping_list.txt
+	$ git commit shopping_list.txt -m"Modify item #4"
+	 
+
+17. Логови:
+
+	$ git log
+commit aff1141b278d474a5fcbac967358e602f313aa5a (HEAD -> branch2)
+Author: Katerina Kalajdjievska <katerinakalaj@hotmail.com>
+Date:   Wed Apr 6 21:29:46 2022 +0200
+
+    Modify item #4
+
+commit d8a1ac50e6b9752e360113b76b8138fa1acef6fa (origin/branch2)
+Author: Katerina Kalajdjievska <katerinakalaj@hotmail.com>
+Date:   Wed Apr 6 18:10:06 2022 +0200
+
+    Add quantities to the items
+
+commit 522372c8907eab19427d45594a063ee723fd1dea
+Author: Katerina Kalajdjievska <katerinakalaj@hotmail.com>
+Date:   Wed Apr 6 17:50:54 2022 +0200
+
+    Add 5 items to the shopping list
+
+commit d4b034a65d5283170ef572aec22e5dcd44c70c29
+Author: Katerina <71216158+K142009@users.noreply.github.com>
+Date:   Wed Apr 6 17:02:13 2022 +0200
+
+    Update README.md
+
+commit d407d51c82d02983eb1077527990e62849429881
+Author: Katerina <71216158+K142009@users.noreply.github.com>
+Date:   Wed Apr 6 17:00:52 2022 +0200
+
+    Initial commit
+
+18. Додавање на 6та ставка во shopping_list.txt и променување на последниот commit
+
+	$ nano shopping_list.txt
+	$ git commit --amend -m"Modify item #4 and add item #6"
+	$ git commit shopping_list.txt -m"Modify item #4 and add item #6"
+
+
+19. Лог после командата $ git commit --amend -m"Modify item #4 and add item #6":
+
+	$ git log
+commit 116a80e4594fa612a2cfe9185cca485b85670858 (HEAD -> branch2)
+Author: Katerina Kalajdjievska <katerinakalaj@hotmail.com>
+Date:   Wed Apr 6 21:29:46 2022 +0200
+
+    Modify item #4 and add item #6
+
+commit d8a1ac50e6b9752e360113b76b8138fa1acef6fa (origin/branch2)
+Author: Katerina Kalajdjievska <katerinakalaj@hotmail.com>
+Date:   Wed Apr 6 18:10:06 2022 +0200
+
+    Add quantities to the items
+
+commit 522372c8907eab19427d45594a063ee723fd1dea
+Author: Katerina Kalajdjievska <katerinakalaj@hotmail.com>
+Date:   Wed Apr 6 17:50:54 2022 +0200
+
+    Add 5 items to the shopping list
+
+commit d4b034a65d5283170ef572aec22e5dcd44c70c29
+Author: Katerina <71216158+K142009@users.noreply.github.com>
+Date:   Wed Apr 6 17:02:13 2022 +0200
+
+    Update README.md
+
+commit d407d51c82d02983eb1077527990e62849429881
+Author: Katerina <71216158+K142009@users.noreply.github.com>
+Date:   Wed Apr 6 17:00:52 2022 +0200
+
+    Initial commit
+
+
+ Лог после командата $ git commit shopping_list.txt -m"Modify item #4 and add item #6":
+
+	$ git log
+commit 4bad1a7d90c087f5e9f8d1918cd119d7245a8ab1 (HEAD -> branch2)
+Author: Katerina Kalajdjievska <katerinakalaj@hotmail.com>
+Date:   Wed Apr 6 22:02:26 2022 +0200
+
+    Modify item #4 and add item #6
+
+commit 116a80e4594fa612a2cfe9185cca485b85670858
+Author: Katerina Kalajdjievska <katerinakalaj@hotmail.com>
+Date:   Wed Apr 6 21:29:46 2022 +0200
+
+    Modify item #4 and add item #6
+
+commit d8a1ac50e6b9752e360113b76b8138fa1acef6fa (origin/branch2)
+Author: Katerina Kalajdjievska <katerinakalaj@hotmail.com>
+Date:   Wed Apr 6 18:10:06 2022 +0200
+
+    Add quantities to the items
+
+commit 522372c8907eab19427d45594a063ee723fd1dea
+Author: Katerina Kalajdjievska <katerinakalaj@hotmail.com>
+Date:   Wed Apr 6 17:50:54 2022 +0200
+
+    Add 5 items to the shopping list
+
+commit d4b034a65d5283170ef572aec22e5dcd44c70c29
+Author: Katerina <71216158+K142009@users.noreply.github.com>
+Date:   Wed Apr 6 17:02:13 2022 +0200
+
+    Update README.md
+
+commit d407d51c82d02983eb1077527990e62849429881
+Author: Katerina <71216158+K142009@users.noreply.github.com>
+Date:   Wed Apr 6 17:00:52 2022 +0200
+
+    Initial commit
+	
+
+20. Префрлање на гранката master и спојување на гранката branch1 кон master: 
+Не се појавија конфликти при спојувањето.
+
+	$ git checkout master
+	$ git merge branch1
+
+21. При спојување на втората гранка се појави конфликт.
+
+	$ git merge branch2
+Конфликтот го решивме така што ја задржавме верзијата на master гранката, на фајлот што правеше проблем. 
+	$ git add .
+	$ git commit -m"Resolved conflict"
+
+	
+
+22. Ја додаваме оваа датотека и правиме commit:
+
+	$ nano 142009.txt
+	$ git commit -m"Add docs"
+
+23. Синхронизирање со оддалечениот репозиториум:
+
+	$ git pull
+	$ git push origin --all
